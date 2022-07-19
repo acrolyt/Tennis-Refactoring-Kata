@@ -21,9 +21,9 @@ class TennisGame2 implements TennisGame
     }
 
 
-    public function wonPoint($player): void
+    public function wonPoint(int $playerId): void
     {
-        if ($player == "player1") {
+        if ($playerId == "player1") {
             $this->P1Score();
         } else {
             $this->P2Score();

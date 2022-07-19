@@ -16,5 +16,19 @@ class ScoreFormatter
         };
     }
 
+    public function getAdvantageGameTexts(int $difference): string
+    {
+        if ($difference === 1) {
+            $score = 'Advantage player1';
+        } elseif ($difference === -1) {
+            $score = 'Advantage player2';
+        } elseif ($difference >= 2) {
+            $score = 'Win for player1';
+        } else {
+            $score = 'Win for player2';
+        }
+
+        return $score;
+    }
 
 }

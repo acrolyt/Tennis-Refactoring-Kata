@@ -61,10 +61,10 @@ abstract class TestMaster extends TestCase
         $highestScore = max($score1, $score2);
         for ($i = 0; $i < $highestScore; $i++) {
             if ($i < $score1) {
-                $this->game->wonPoint('player1');
+                $this->game->wonPoint(1);
             }
             if ($i < $score2) {
-                $this->game->wonPoint('player2');
+                $this->game->wonPoint(2);
             }
         }
     }
