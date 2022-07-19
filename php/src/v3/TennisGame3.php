@@ -1,6 +1,8 @@
 <?php
 
-namespace TennisGame;
+namespace TennisGame\v3;
+
+use TennisGame\v1\TennisGame;
 
 class TennisGame3 implements TennisGame
 {

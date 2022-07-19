@@ -1,6 +1,8 @@
 <?php
 
-namespace TennisGame;
+namespace TennisGame\v2;
+
+use TennisGame\v1\TennisGame;
 
 class TennisGame2 implements TennisGame
 {
@@ -18,7 +20,17 @@ class TennisGame2 implements TennisGame
         $this->player2Name = $player2Name;
     }
 
-    public function getScore()
+
+    public function wonPoint($player): void
+    {
+        if ($player == "player1") {
+            $this->P1Score();
+        } else {
+            $this->P2Score();
+        }
+    }
+
+    public function getScore(): string
     {
         $score = "";
         if ($this->P1point == $this->P2point && $this->P1point < 4) {
@@ -140,14 +152,5 @@ class TennisGame2 implements TennisGame
     private function P2Score()
     {
         $this->P2point++;
-    }
-
-    public function wonPoint($player)
-    {
-        if ($player == "player1") {
-            $this->P1Score();
-        } else {
-            $this->P2Score();
-        }
     }
 }

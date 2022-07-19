@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use TennisGame\TennisGame3;
+use TennisGame\v3\TennisGame3;
 
 /**
  * TennisGame1 test case.
