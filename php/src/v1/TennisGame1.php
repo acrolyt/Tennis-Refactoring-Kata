@@ -33,7 +33,7 @@ class TennisGame1 implements TennisGame
 
     public function getScore(): string
     {
-        if ($this->isGameTied()) {
+        if ($this->isTied()) {
             return $this->scoreFormatter->getTiedGameTexts($this->player1->score());
         }
 
@@ -54,7 +54,7 @@ class TennisGame1 implements TennisGame
             );
     }
 
-    protected function isGameTied(): bool
+    protected function isTied(): bool
     {
         return $this->player1->score() === $this->player2->score();
     }
