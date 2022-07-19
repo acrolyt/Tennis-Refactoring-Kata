@@ -33,16 +33,17 @@ class TennisGame1 implements TennisGame
 
     public function getScore(): string
     {
-        $score = '';
         if ($this->isGameTied()) {
             return $this->scoreFormatter->getTiedGameTexts($this->player1->score());
         }
 
         if ($this->isInAdvantageMode()) {
-            $minusResult = $this->player1->score() - $this->player2->score();
+            $pointDifference = $this->player1->score() - $this->player2->score();
 
-            return $this->scoreFormatter->getAdvantageGameTexts($minusResult);
+            return $this->scoreFormatter->getAdvantageGameTexts($pointDifference);
         }
+
+        $score = '';
 
         for ($i = 1; $i < 3; $i++) {
             if ($i === 1) {
