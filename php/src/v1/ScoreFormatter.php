@@ -8,16 +8,12 @@ class ScoreFormatter
 {
     public function getTiedGameTexts(int $score): string
     {
-        switch ($score) {
-            case 0:
-                return 'Love-All';
-            case 1:
-                return 'Fifteen-All';
-            case 2:
-                return 'Thirty-All';
-            default:
-                return 'Deuce';
-        }
+        return match ($score) {
+            0 => 'Love-All',
+            1 => 'Fifteen-All',
+            2 => 'Thirty-All',
+            default => 'Deuce',
+        };
     }
 
 
