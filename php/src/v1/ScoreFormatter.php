@@ -18,17 +18,18 @@ class ScoreFormatter
 
     public function getAdvantageGameTexts(int $difference): string
     {
-        if ($difference === 1) {
-            $score = 'Advantage player1';
-        } elseif ($difference === -1) {
-            $score = 'Advantage player2';
-        } elseif ($difference >= 2) {
-            $score = 'Win for player1';
-        } else {
-            $score = 'Win for player2';
+
+        switch ($difference) {
+            case 1:
+                return 'Advantage player1';
+            case -1:
+                return 'Advantage player2';
+            default:
+                if ($difference >= 2) {
+                    return 'Win for player1';
+                } else {
+                    return 'Win for player2';
+                }
         }
-
-        return $score;
     }
-
 }
