@@ -6,6 +6,13 @@ namespace TennisGame\v1;
 
 class ScoreFormatter
 {
+    private const SCORE_TEXTS = [
+        0 => 'Love',
+        1 => 'Fifteen',
+        2 => 'Thirty',
+        3 => 'Forty'
+    ];
+
     public function getTiedGameTexts(int $score): string
     {
         return match ($score) {
@@ -30,5 +37,10 @@ class ScoreFormatter
         }
 
         return 'Win for player2';
+    }
+
+    public function format(int $score): string
+    {
+        return self::SCORE_TEXTS[$score];
     }
 }

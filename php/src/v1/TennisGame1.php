@@ -21,7 +21,7 @@ class TennisGame1 implements TennisGame
         $this->player2 = $player2;
         $this->players = [
             1 => $player1,
-            2 => $player2
+            2 => $player2,
         ];
         $this->scoreFormatter = $scoreFormatter;
     }
@@ -43,32 +43,15 @@ class TennisGame1 implements TennisGame
             return $this->scoreFormatter->getAdvantageGameTexts($pointDifference);
         }
 
-        $score = '';
-
-        for ($i = 1; $i < 3; $i++) {
-            if ($i === 1) {
-                $tempScore = $this->player1->score();
-            } else {
-                $score     .= '-';
-                $tempScore = $this->player2->score();
-            }
-            switch ($tempScore) {
-                case 0:
-                    $score .= 'Love';
-                    break;
-                case 1:
-                    $score .= 'Fifteen';
-                    break;
-                case 2:
-                    $score .= 'Thirty';
-                    break;
-                case 3:
-                    $score .= 'Forty';
-                    break;
-            }
-        }
-
-        return $score;
+        return sprintf(
+                '%s-%s',
+                $this->scoreFormatter->format(
+                    $this->player1->score()
+                ),
+                $this->scoreFormatter->format(
+                    $this->player2->score()
+                )
+            );
     }
 
     protected function isGameTied(): bool
