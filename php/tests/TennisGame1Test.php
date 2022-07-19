@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use TennisGame\v1\Player;
+use TennisGame\v1\ScoreFormatter;
 use TennisGame\v1\TennisGame1;
 
 /**
@@ -17,7 +19,11 @@ class TennisGame1Test extends TestMaster
     protected function setUp(): void
     {
         parent::setUp();
-        $this->game = new TennisGame1('player1', 'player2');
+
+        $scoreFormatter =  new ScoreFormatter();
+        $player1 = new Player(1, 'player1');
+        $player2 = new Player(2, 'player2');
+        $this->game = new TennisGame1($player1, $player2, $scoreFormatter);
     }
 
     /**
